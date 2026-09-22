@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - ChaloChale</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #5b3f4d;
+
+            background:
+                radial-gradient(circle at top left,
+                    rgba(255, 214, 229, 0.55),
+                    transparent 35%),
+                linear-gradient(
+                    180deg,
+                    #fffafd 0%,
+                    #fff5fa 48%,
+                    #fffafd 100%
+                );
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            padding: 17px 20px;
+
+            background: rgba(255, 255, 255, 0.55);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid
+                rgba(255, 255, 255, 0.55);
+
+            box-shadow:
+                0 5px 25px
+                rgba(150, 110, 180, 0.12);
+        }
+
+
+        /* Logo */
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #7d5a9e !important;
+
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .navbar-brand i {
+            color: #b493d6;
+            font-size: 1.9rem;
+        }
+
+
+        /* Navbar Links */
+
+        .navbar-nav {
+            gap: 10px;
+        }
+
+        .nav-link {
+            position: relative;
+
+            color: #695078 !important;
+
+            font-weight: 700;
+
+            padding: 10px 8px !important;
+
+            margin: 0 5px;
+        }
+
+        .nav-link:hover {
+            color: #a77ccc !important;
+        }
+
+        .nav-link::after {
+            content: '';
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 1px;
+
+            width: 0;
+            height: 3px;
+
+            transform: translateX(-50%);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #dac4ef,
+                    #b995dc
+                );
+
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 75%;
+        }
+
+
+        /* Navbar Buttons */
+
+        .navbar .btn-warning {
+            margin-left: 12px;
+
+            padding: 10px 25px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            color: white !important;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d8c0ee,
+                    #b993db
+                );
+
+            box-shadow:
+                0 7px 18px
+                rgba(175, 135, 210, 0.28);
+
+            transition: 0.3s;
+        }
+
+        .navbar .btn-warning:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #c9abe5,
+                    #a97dce
+                );
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= SIGNUP SECTION ================= */
+
+        .signup-section {
+            min-height: calc(100vh - 90px);
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 55px 20px;
+        }
+
+
+        /* Signup Card */
+
+        .signup-card {
+            width: 100%;
+            max-width: 500px;
+
+            padding: 38px;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            border:
+                1px solid
+                rgba(255, 190, 214, 0.45);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 12px 32px
+                rgba(184, 95, 131, 0.12);
+        }
+
+
+        /* Signup Icon */
+
+        .signup-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            color: white;
+
+            font-size: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9c2f0,
+                    #ad86d1
+                );
+
+            box-shadow:
+                0 7px 18px
+                rgba(180, 145, 215, 0.28);
+        }
+
+
+        /* Heading */
+
+        .signup-card h2 {
+            text-align: center;
+
+            color: #7d5a9e;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+        .signup-text {
+            text-align: center;
+
+            color: #695078;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* Form */
+
+        .form-label {
+            color: #695078;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .form-control {
+            padding: 11px 14px;
+
+            border:
+                1px solid
+                #d9c2f0;
+
+            border-radius: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #b995dc;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(185, 149, 220, 0.18);
+        }
+
+
+        /* Signup Button */
+
+        .signup-btn {
+            width: 100%;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9c2f0,
+                    #c4a1e2,
+                    #ad86d1
+                );
+
+            box-shadow:
+                0 7px 18px
+                rgba(180, 145, 215, 0.28);
+
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #cdb0e9,
+                    #b993db,
+                    #a477cb
+                );
+
+            transform: translateY(-2px);
+        }
+
+
+        /* Sign In */
+
+        .signin-text {
+            text-align: center;
+
+            margin-top: 18px;
+
+            margin-bottom: 0;
+
+            color: #695078;
+        }
+
+        .signin-text a {
+            color: #9b72c2;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .signin-text a:hover {
+            color: #7d5a9e;
+
+            text-decoration: underline;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                margin-top: 15px;
+
+                padding: 15px;
+
+                background:
+                    rgba(255, 255, 255, 0.95);
+
+                border-radius: 12px;
+            }
+
+            .navbar-nav {
+                gap: 2px;
+            }
+
+            .navbar .btn-warning {
+                margin: 8px 5px 0 0;
+            }
+        }
+
+
+        @media (max-width: 576px) {
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .signup-section {
+                padding: 35px 15px;
+            }
+
+            .signup-card {
+                padding: 28px 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+
+                <i class="fa-solid fa-plane-departure"></i>
+
+                ChaloChale
+
+            </a>
+
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse"
+                id="navbarMenu">
+
+
+                <ul class="navbar-nav ms-auto">
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="destinations.html">
+
+                            Destinations
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="packages.html">
+
+                            Packages
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="booking.html">
+
+                            Booking
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                            href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+
+                <a href="login.html"
+                    class="btn btn-warning">
+
+                    Login
+
+                </a>
+
+
+                <a href="signup.html"
+                    class="btn btn-warning">
+
+                    Sign Up
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Signup Section -->
+
+    <section class="signup-section">
+
+
+        <div class="signup-card">
+
+
+            <div class="signup-icon">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+            </div>
+
+
+            <h2>
+                Create Account
+            </h2>
+
+
+            <p class="signup-text">
+
+                Join ChaloChale and start planning your next journey.
+
+            </p>
+
+
+
+            <form>
+
+
+                <!-- Full Name -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Full Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your full name">
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Email Address
+                    </label>
+
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter your email">
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Password
+                    </label>
+
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Enter password">
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Confirm Password
+                    </label>
+
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Confirm password">
+
+                </div>
+
+
+
+                <!-- Signup Button -->
+
+                <button
+                    type="submit"
+                    class="signup-btn">
+
+                    Sign Up
+
+                </button>
+
+
+
+                <p class="signin-text">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Sign In
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+</body>
+
+</html>

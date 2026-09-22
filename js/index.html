@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ChaloChale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --baby-pink: #f7a8c4;
+            --soft-pink: #ffd6e5;
+            --blush-pink: #ffbfd7;
+            --rose-pink: #e98eaf;
+            --deep-rose: #b85f83;
+            --lavender-pink: #f4d9ff;
+            --cream: #fff9fc;
+            --white-glass: rgba(255, 255, 255, .28);
+            --white-glass-strong: rgba(255, 255, 255, .68);
+            --text-dark: #5b3f4d;
+            --shadow-pink: rgba(205, 104, 145, .22)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text-dark);
+            background: radial-gradient(circle at top left, rgba(247, 168, 196, .45), transparent 35%), linear-gradient(135deg, #fff9fc, #ffe8f1, #f4d9ff);
+            min-height: 100vh
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 10px;
+            z-index: 9999;
+            background: #fff;
+            color: var(--deep-rose);
+            padding: 10px 15px;
+            border-radius: 8px
+        }
+
+        .skip-link:focus {
+            left: 10px
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, .45);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px var(--shadow-pink);
+            padding: 15px 0
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--deep-rose) !important
+        }
+
+        .navbar-brand i {
+            color: var(--deep-rose);
+            margin-right: 7px
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 7px
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--deep-rose) !important
+        }
+
+        .auth-btn {
+            border-radius: 25px;
+            padding: 9px 18px !important;
+            margin-left: 5px;
+            margin-right: 0;
+            color: #fff !important;
+            transition: .3s
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--baby-pink), var(--deep-rose));
+            box-shadow: 0 5px 15px var(--shadow-pink)
+        }
+
+        .signup-btn {
+            background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+            box-shadow: 0 5px 15px var(--shadow-pink)
+        }
+
+        .auth-btn:hover {
+            color: #fff !important;
+            transform: translateY(-2px)
+        }
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-content {
+            max-width: 650px
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 20px
+        }
+
+        .hero-content h1 span {
+            color: var(--rose-pink)
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #765765;
+            margin-bottom: 30px
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap
+        }
+
+        .btn-pink {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--baby-pink), var(--deep-rose));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px var(--shadow-pink);
+            transition: .3s
+        }
+
+        .btn-pink:hover {
+            color: #fff;
+            transform: translateY(-3px)
+        }
+
+        .btn-outline-pink {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--deep-rose);
+            background: rgba(255, 255, 255, .55);
+            border: 2px solid var(--rose-pink);
+            border-radius: 25px;
+            padding: 10px 24px;
+            font-weight: 600;
+            transition: .3s
+        }
+
+        .btn-outline-pink:hover {
+            color: #fff;
+            background: var(--deep-rose);
+            border-color: var(--deep-rose)
+        }
+
+        .hero-image-wrapper {
+            position: relative
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 470px;
+            object-fit: cover;
+            border-radius: 35px;
+            box-shadow: 0 15px 40px var(--shadow-pink)
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            background: rgba(255, 255, 255, .82);
+            backdrop-filter: blur(12px);
+            padding: 15px 20px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px var(--shadow-pink)
+        }
+
+        .hero-badge strong {
+            display: block;
+            color: var(--deep-rose);
+            font-size: 20px
+        }
+
+        .hero-badge span {
+            color: #765765
+        }
+
+        .section {
+            padding: 80px 0
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 15px
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            color: #765765;
+            line-height: 1.7
+        }
+
+        .destination-card {
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-pink);
+            height: 100%;
+            transition: .3s
+        }
+
+        .destination-card:hover {
+            transform: translateY(-7px)
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover
+        }
+
+        .destination-content {
+            padding: 25px
+        }
+
+        .destination-content h3 {
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 10px
+        }
+
+        .destination-content p {
+            color: #765765;
+            line-height: 1.6;
+            margin-bottom: 18px
+        }
+
+        .destination-link {
+            color: var(--deep-rose);
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        .destination-link:hover {
+            color: var(--rose-pink)
+        }
+
+        .feature-card {
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 25px;
+            padding: 30px 25px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 10px 30px var(--shadow-pink)
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: var(--soft-pink);
+            color: var(--deep-rose);
+            border-radius: 50%;
+            font-size: 27px
+        }
+
+        .feature-card h3 {
+            color: var(--deep-rose);
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        .feature-card p {
+            color: #765765;
+            line-height: 1.6;
+            margin: 0
+        }
+
+        .cta-section {
+            padding: 80px 0
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(247, 168, 196, .8), rgba(244, 217, 255, .85));
+            border: 1px solid rgba(255, 255, 255, .7);
+            border-radius: 30px;
+            padding: 60px 30px;
+            text-align: center;
+            box-shadow: 0 10px 35px var(--shadow-pink)
+        }
+
+        .cta-box h2 {
+            color: var(--deep-rose);
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 15px
+        }
+
+        .cta-box p {
+            color: #765765;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.7
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--deep-rose), var(--baby-pink));
+            color: #fff;
+            padding: 45px 0 20px
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        footer p {
+            color: #fff;
+            line-height: 1.7
+        }
+
+        .social-link {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            margin-right: 8px;
+            color: #fff;
+            text-decoration: none;
+            transition: .3s
+        }
+
+        .social-link:hover {
+            color: var(--deep-rose);
+            background: #fff
+        }
+
+        footer hr {
+            border-color: rgba(255, 255, 255, .3);
+            margin: 30px 0 18px
+        }
+
+        @media(max-width:991px) {
+            .auth-btn {
+                display: inline-block;
+                margin-top: 5px;
+                margin-bottom: 5px
+            }
+        }
+
+        @media(max-width:768px) {
+            .navbar-nav {
+                background: rgba(255, 255, 255, .9);
+                padding: 15px;
+                border-radius: 15px
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 60px 0
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: 0 auto 40px
+            }
+
+            .hero-content h1 {
+                font-size: 42px
+            }
+
+            .hero-content p {
+                font-size: 17px
+            }
+
+            .hero-buttons {
+                justify-content: center
+            }
+
+            .hero-image {
+                height: 350px
+            }
+
+            .section {
+                padding: 55px 0
+            }
+
+            .section-title {
+                font-size: 32px
+            }
+
+            .cta-box h2 {
+                font-size: 30px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ChaloChale home">
+                <i class="fa-solid fa-plane-departure" aria-hidden="true"></i> ChaloChale
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Destination.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="packages.html">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link auth-btn login-btn" href="login.html">
+                            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link auth-btn signup-btn" href="signup.html">
+                            <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Sign Up
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <h1>Explore the World with <span>ChaloChale</span></h1>
+                            <p>
+                                Discover beautiful destinations, exciting experiences, and unforgettable journeys.
+                                Plan your perfect trip and create memories that last a lifetime.
+                            </p>
+
+                            <div class="hero-buttons">
+                                <a href="Destination.html" class="btn-pink">
+                                    Explore Destinations
+                                </a>
+                                <a href="packages.html" class="btn-outline-pink">
+                                    View Packages
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="hero-image-wrapper">
+                            <img class="hero-image"
+                                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+                                alt="Beautiful tropical beach destination">
+
+                            <div class="hero-badge">
+                                <strong>Travel • Explore • Enjoy</strong>
+                                <span>Your journey starts here</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="destinations-title">
+            <div class="container">
+                <h2 id="destinations-title" class="section-title">Popular Destinations</h2>
+
+                <p class="section-subtitle">
+                    Explore some of the most beautiful destinations and discover new places
+                    for your next unforgettable adventure.
+                </p>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="destination-card">
+                            <img class="destination-image"
+                                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+                                alt="Beach destination in Goa" loading="lazy">
+
+                            <div class="destination-content">
+                                <h3>Goa</h3>
+                                <p>
+                                    Relax on beautiful beaches, enjoy exciting activities,
+                                    and experience the vibrant atmosphere of Goa.
+                                </p>
+                                <a href="Destination.html" class="destination-link">
+                                    Explore Goa <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="destination-card">
+                            <img class="destination-image"
+                                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80"
+                                alt="Snow-covered mountains in Manali" loading="lazy">
+
+                            <div class="destination-content">
+                                <h3>Manali</h3>
+                                <p>
+                                    Enjoy peaceful mountain views, beautiful valleys,
+                                    and refreshing experiences in the hills.
+                                </p>
+                                <a href="Destination.html" class="destination-link">
+                                    Explore Manali <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="destination-card">
+                            <img class="destination-image"
+                                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+                                alt="Kerala backwaters surrounded by greenery" loading="lazy">
+
+                            <div class="destination-content">
+                                <h3>Kerala</h3>
+                                <p>
+                                    Experience peaceful backwaters, tropical greenery,
+                                    houseboats, and beautiful natural scenery.
+                                </p>
+                                <a href="Destination.html" class="destination-link">
+                                    Explore Kerala <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">Why Choose ChaloChale?</h2>
+
+                <p class="section-subtitle">
+                    Everything you need to make your travel experience simple,
+                    comfortable, and memorable.
+                </p>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            </div>
+                            <h3>Beautiful Destinations</h3>
+                            <p>
+                                Discover amazing places and explore new destinations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-suitcase-rolling" aria-hidden="true"></i>
+                            </div>
+                            <h3>Travel Packages</h3>
+                            <p>
+                                Choose packages designed for different travel experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                            </div>
+                            <h3>Easy Booking</h3>
+                            <p>
+                                Book your next trip through a simple and convenient process.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                            </div>
+                            <h3>Unforgettable Memories</h3>
+                            <p>
+                                Create beautiful memories with every journey you take.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready for Your Next Adventure?</h2>
+                    <p>
+                        Explore destinations, choose your favorite package,
+                        and start planning your next unforgettable journey with ChaloChale.
+                    </p>
+
+                    <a href="booking.html" class="btn-pink">
+                        Book Your Trip
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <h2 class="footer-title h5">ChaloChale</h2>
+                    <p>
+                        Making your travel dreams a beautiful journey.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="footer-title h5">Contact</h2>
+
+                    <p>
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        +91 98765 43210
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        info@chalochale.com
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        New Delhi, India
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="footer-title h5">Follow Us</h2>
+
+                    <a class="social-link" href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social-link" href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social-link" href="#" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="social-link" href="#" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="text-center mb-0">
+                &copy; 2026 ChaloChale. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

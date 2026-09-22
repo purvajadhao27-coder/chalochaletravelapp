@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Packages - ChaloChale</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --baby-pink: #f7a8c4;
+            --soft-pink: #ffd6e5;
+            --blush-pink: #ffbfd7;
+            --rose-pink: #e98eaf;
+            --deep-rose: #b85f83;
+            --lavender-pink: #f4d9ff;
+            --cream: #fff9fc;
+            --white-glass: rgba(255, 255, 255, .28);
+            --white-glass-strong: rgba(255, 255, 255, .68);
+            --text-dark: #5b3f4d;
+            --shadow-pink: rgba(205, 104, 145, .22);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text-dark);
+            background: radial-gradient(circle at top left, rgba(247, 168, 196, .45), transparent 35%),
+                linear-gradient(135deg, #fff9fc, #ffe8f1, #f4d9ff);
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(255, 255, 255, .45);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px var(--shadow-pink);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--deep-rose) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--deep-rose);
+            margin-right: 7px;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 7px;
+        }
+
+        .nav-link:hover {
+            color: var(--deep-rose) !important;
+        }
+
+        .nav-link.active {
+            color: var(--deep-rose) !important;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--baby-pink), var(--deep-rose));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 22px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px var(--shadow-pink);
+        }
+
+        .btn-custom:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ================= PACKAGES SECTION ================= */
+
+        .packages-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 15px;
+        }
+
+        .section-title i {
+            font-size: 30px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            color: #765765;
+        }
+
+        /* ================= PACKAGE CARDS ================= */
+
+        .package-card {
+            height: 100%;
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-pink);
+            transition: .3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px var(--shadow-pink);
+        }
+
+        .package-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .package-content {
+            padding: 25px;
+        }
+
+        .package-content h3 {
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .package-content p {
+            color: #765765;
+            line-height: 1.6;
+        }
+
+        .package-price {
+            color: var(--deep-rose) !important;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .package-details {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .package-details li {
+            margin-bottom: 8px;
+            color: #765765;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: linear-gradient(135deg, var(--deep-rose), var(--baby-pink));
+            color: #fff;
+            padding: 45px 0 20px;
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer p,
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: .8;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .bottom-text {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .25);
+            padding-top: 18px;
+            margin-top: 30px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:768px) {
+
+            .navbar-nav {
+                background: rgba(255, 255, 255, .9);
+                padding: 15px;
+                border-radius: 15px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .packages-section {
+                padding: 55px 0;
+            }
+
+            .package-card {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-plane-departure"></i>ChaloChale
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Destination.html">
+                            Destinations
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="packages.html">
+                            Packages
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">
+                            Booking
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-custom" href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-custom" href="signup.html">
+                            Sign Up
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PACKAGES ================= -->
+
+    <section class="packages-section">
+
+        <div class="container">
+
+            <h1 class="section-title">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                Travel Packages
+            </h1>
+
+            <p class="section-subtitle">
+                Choose a beautiful travel package and make your next journey
+                unforgettable with ChaloChale.
+            </p>
+
+
+            <div class="row g-4">
+
+
+                <!-- GOA -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Goa beach">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Goa Getaway
+                            </h3>
+
+                            <p>
+                                Relax on beautiful beaches and enjoy an
+                                unforgettable getaway in Goa.
+                            </p>
+
+                            <div class="package-price">
+                                ₹8,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>2 Nights / 3 Days</li>
+                                <li>Hotel Stay</li>
+                                <li>Breakfast Included</li>
+                                <li>Beach Sightseeing</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MANALI -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Manali mountains">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Manali Escape
+                            </h3>
+
+                            <p>
+                                Experience peaceful mountains, beautiful
+                                valleys and refreshing Himalayan views.
+                            </p>
+
+                            <div class="package-price">
+                                ₹14,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>4 Nights / 5 Days</li>
+                                <li>Mountain Resort</li>
+                                <li>Breakfast & Dinner</li>
+                                <li>Local Sightseeing</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RAJASTHAN -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Rajasthan palace">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Royal Rajasthan
+                            </h3>
+
+                            <p>
+                                Discover royal palaces, historic forts and
+                                the colorful culture of Rajasthan.
+                            </p>
+
+                            <div class="package-price">
+                                ₹11,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>3 Nights / 4 Days</li>
+                                <li>Heritage Hotel</li>
+                                <li>Breakfast Included</li>
+                                <li>Fort & Palace Tours</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KERALA -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Kerala backwaters">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Kerala Escape
+                            </h3>
+
+                            <p>
+                                Explore beautiful backwaters, greenery and
+                                peaceful landscapes of Kerala.
+                            </p>
+
+                            <div class="package-price">
+                                ₹15,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>4 Nights / 5 Days</li>
+                                <li>Resort & Houseboat</li>
+                                <li>Breakfast Included</li>
+                                <li>Backwater Tour</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MUMBAI -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Mumbai city">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Mumbai Experience
+                            </h3>
+
+                            <p>
+                                Explore famous landmarks, local attractions
+                                and the energetic streets of Mumbai.
+                            </p>
+
+                            <div class="package-price">
+                                ₹7,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>2 Nights / 3 Days</li>
+                                <li>Hotel Stay</li>
+                                <li>Breakfast Included</li>
+                                <li>City Sightseeing</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELHI -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="package-card">
+
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=80"
+                            class="package-image" alt="Delhi">
+
+                        <div class="package-content">
+
+                            <h3>
+                                Delhi & Agra
+                            </h3>
+
+                            <p>
+                                Discover India's historic landmarks and
+                                experience Delhi and Agra.
+                            </p>
+
+                            <div class="package-price">
+                                ₹19,999
+                            </div>
+
+                            <ul class="package-details">
+                                <li>4 Nights / 5 Days</li>
+                                <li>Luxury Hotel Stay</li>
+                                <li>All Meals Included</li>
+                                <li>Delhi & Agra Tour</li>
+                            </ul>
+
+                            <a href="booking.html" class="btn btn-custom">
+                                Book Now
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <h5>
+                        ChaloChale
+                    </h5>
+
+                    <p>
+                        Explore beautiful destinations, discover exciting
+                        experiences, and make unforgettable travel memories.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <h5>
+                        Quick Links
+                    </h5>
+
+                    <p>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="Destination.html">
+                            Destinations
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="packages.html">
+                            Packages
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="booking.html">
+                            Booking
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <h5>
+                        Contact Info
+                    </h5>
+
+                    <p>
+                        <i class="fa-solid fa-phone me-2"></i>
+                        +91 98765 43210
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope me-2"></i>
+                        info@chalochale.com
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot me-2"></i>
+                        New Delhi, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-text">
+
+                <p class="mb-0">
+                    &copy;
+                    <span id="year"></span>
+                    ChaloChale. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

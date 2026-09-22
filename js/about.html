@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>About Us - ChaloChale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --baby-pink: #f7a8c4;
+            --soft-pink: #ffd6e5;
+            --blush-pink: #ffbfd7;
+            --rose-pink: #e98eaf;
+            --deep-rose: #b85f83;
+            --lavender-pink: #f4d9ff;
+            --cream: #fff9fc;
+            --white-glass: rgba(255, 255, 255, .28);
+            --white-glass-strong: rgba(255, 255, 255, .68);
+            --text-dark: #5b3f4d;
+            --shadow-pink: rgba(205, 104, 145, .22)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text-dark);
+            background: radial-gradient(circle at top left, rgba(247, 168, 196, .45), transparent 35%), linear-gradient(135deg, #fff9fc, #ffe8f1, #f4d9ff);
+            min-height: 100vh
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, .45);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px var(--shadow-pink);
+            padding: 15px 0
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--deep-rose) !important
+        }
+
+        .navbar-brand i {
+            color: var(--deep-rose);
+            margin-right: 7px
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 7px
+        }
+
+        .nav-link:hover {
+            color: var(--deep-rose) !important
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--baby-pink), var(--deep-rose));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 22px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px var(--shadow-pink)
+        }
+
+        .btn-custom:hover {
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .about-section {
+            padding: 80px 0
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 15px
+        }
+
+        .section-title i {
+            font-size: 30px
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+            color: #765765
+        }
+
+        .about-card {
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 30px var(--shadow-pink);
+            height: 100%
+        }
+
+        .about-card h3 {
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        .about-card p {
+            line-height: 1.8;
+            color: #765765
+        }
+
+        .about-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--soft-pink);
+            color: var(--deep-rose);
+            border-radius: 50%;
+            font-size: 27px;
+            margin-bottom: 20px
+        }
+
+        .feature-card {
+            text-align: center;
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border-radius: 22px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 25px var(--shadow-pink);
+            height: 100%
+        }
+
+        .feature-card i {
+            font-size: 35px;
+            color: var(--deep-rose);
+            margin-bottom: 15px
+        }
+
+        .feature-card h5 {
+            font-weight: 700;
+            color: var(--deep-rose)
+        }
+
+        .feature-card p {
+            color: #765765;
+            margin-bottom: 0
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--deep-rose), var(--baby-pink));
+            color: #fff;
+            padding: 45px 0 20px
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        .footer p,
+        .footer a {
+            color: #fff;
+            text-decoration: none
+        }
+
+        .footer a:hover {
+            opacity: .8
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            margin-right: 8px
+        }
+
+        .bottom-text {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .25);
+            padding-top: 18px;
+            margin-top: 30px
+        }
+
+        @media(max-width:768px) {
+            .navbar-nav {
+                background: rgba(255, 255, 255, .9);
+                padding: 15px;
+                border-radius: 15px
+            }
+
+            .section-title {
+                font-size: 32px
+            }
+
+            .about-section {
+                padding: 55px 0
+            }
+
+            .about-card {
+                padding: 25px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-plane-departure"></i>ChaloChale</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Destination.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-custom" href="login.html">Login</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-custom" href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="about-section">
+        <div class="container">
+            <h1 class="section-title"><i class="fa-solid fa-heart"></i> About ChaloChale</h1>
+            <p class="section-subtitle">Your journey begins with ChaloChale. We make travel planning simple, exciting,
+                and memorable.</p>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fa-solid fa-plane"></i></div>
+                        <h3>Who We Are</h3>
+                        <p>ChaloChale is a travel platform created to help travelers discover beautiful destinations,
+                            explore exciting experiences, and plan memorable journeys. We bring destinations, travel
+                            packages, and booking options together in one convenient place.</p>
+                        <p>Our goal is to make every step of your travel planning experience easy, enjoyable, and
+                            stress-free.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>What We Offer</h3>
+                        <p>From discovering new destinations to selecting the right travel package, ChaloChale provides
+                            useful travel information to help you plan your next adventure.</p>
+                        <p>Whether you are planning a relaxing holiday, an exciting adventure, or a memorable trip with
+                            family and friends, we are here to make your journey easier.</p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="section-title">Why Choose Us?</h2>
+            <p class="section-subtitle">Everything you need for a smooth and enjoyable travel experience.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <h5>Explore Destinations</h5>
+                        <p>Discover beautiful places and find inspiration for your next trip.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-suitcase-rolling"></i>
+                        <h5>Travel Packages</h5>
+                        <p>Choose from carefully planned packages for different travel experiences.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-headset"></i>
+                        <h5>Easy Support</h5>
+                        <p>Get helpful information and support while planning your journey.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-card text-center mt-5">
+                <h3>Let's ChaloChale!</h3>
+                <p class="mb-3">Pack your bags, choose your destination, and get ready to create unforgettable memories.
+                </p>
+                <a href="Destination.html" class="btn btn-custom">Explore Destinations <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5>ChaloChale</h5>
+                    <p>Explore beautiful destinations, discover exciting experiences, and make unforgettable travel
+                        memories.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="Destination.html">Destinations</a></p>
+                    <p><a href="packages.html">Packages</a></p>
+                    <p><a href="booking.html">Booking</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fa-solid fa-phone me-2"></i>+91 98765 43210</p>
+                    <p><i class="fa-solid fa-envelope me-2"></i>info@chalochale.com</p>
+                    <p><i class="fa-solid fa-location-dot me-2"></i>New Delhi, India</p>
+                </div>
+            </div>
+            <div class="bottom-text">
+                <p class="mb-0">&copy; <span id="year"></span> ChaloChale. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

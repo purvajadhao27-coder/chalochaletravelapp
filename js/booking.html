@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Booking - ChaloChale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --baby-pink: #f7a8c4;
+            --soft-pink: #ffd6e5;
+            --blush-pink: #ffbfd7;
+            --rose-pink: #e98eaf;
+            --deep-rose: #b85f83;
+            --lavender-pink: #f4d9ff;
+            --cream: #fff9fc;
+            --white-glass: rgba(255, 255, 255, .28);
+            --white-glass-strong: rgba(255, 255, 255, .68);
+            --text-dark: #5b3f4d;
+            --shadow-pink: rgba(205, 104, 145, .22)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text-dark);
+            background: radial-gradient(circle at top left, rgba(247, 168, 196, .45), transparent 35%), linear-gradient(135deg, #fff9fc, #ffe8f1, #f4d9ff);
+            min-height: 100vh
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, .45);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px var(--shadow-pink);
+            padding: 15px 0
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--deep-rose) !important
+        }
+
+        .navbar-brand i {
+            color: var(--deep-rose);
+            margin-right: 7px
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 7px
+        }
+
+        .nav-link:hover {
+            color: var(--deep-rose) !important
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--baby-pink), var(--deep-rose));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 22px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px var(--shadow-pink)
+        }
+
+        .btn-custom:hover {
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .booking-section {
+            padding: 80px 0
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 15px
+        }
+
+        .section-title i {
+            font-size: 30px
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            color: #765765
+        }
+
+        .booking-card {
+            background: var(--white-glass-strong);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 30px var(--shadow-pink)
+        }
+
+        .booking-card h3 {
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 25px
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark)
+        }
+
+        .form-control,
+        .form-select {
+            border: 1px solid rgba(184, 95, 131, .25);
+            border-radius: 12px;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, .7)
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--rose-pink);
+            box-shadow: 0 0 0 3px rgba(233, 142, 175, .15)
+        }
+
+        .booking-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 22px
+        }
+
+        .booking-info i {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--soft-pink);
+            color: var(--deep-rose);
+            border-radius: 50%;
+            font-size: 20px;
+            margin-right: 15px
+        }
+
+        .booking-info h6 {
+            margin: 0;
+            font-weight: 700
+        }
+
+        .booking-info p {
+            margin: 4px 0 0;
+            color: #765765
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--deep-rose), var(--baby-pink));
+            color: #fff;
+            padding: 45px 0 20px
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        .footer p,
+        .footer a {
+            color: #fff;
+            text-decoration: none
+        }
+
+        .footer a:hover {
+            opacity: .8
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            margin-right: 8px
+        }
+
+        .bottom-text {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .25);
+            padding-top: 18px;
+            margin-top: 30px
+        }
+
+        @media(max-width:768px) {
+            .navbar-nav {
+                background: rgba(255, 255, 255, .9);
+                padding: 15px;
+                border-radius: 15px
+            }
+
+            .section-title {
+                font-size: 32px
+            }
+
+            .booking-section {
+                padding: 55px 0
+            }
+
+            .booking-card {
+                padding: 25px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-plane-departure"></i>ChaloChale</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Destination.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-custom" href="login.html">Login</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-custom" href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="booking-section">
+        <div class="container">
+            <h1 class="section-title"><i class="fa-solid fa-heart"></i> Book Your Journey</h1>
+            <p class="section-subtitle">Fill in your travel details and let ChaloChale help you plan your perfect trip.
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="booking-card h-100">
+                        <h3>Why Book With Us?</h3>
+                        <div class="booking-info">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h6>Beautiful Destinations</h6>
+                                <p>Explore amazing places and create unforgettable memories.</p>
+                            </div>
+                        </div>
+                        <div class="booking-info">
+                            <i class="fa-solid fa-suitcase-rolling"></i>
+                            <div>
+                                <h6>Travel Packages</h6>
+                                <p>Choose packages designed for different travel experiences.</p>
+                            </div>
+                        </div>
+                        <div class="booking-info">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <div>
+                                <h6>Easy Booking</h6>
+                                <p>Submit your travel details quickly and conveniently.</p>
+                            </div>
+                        </div>
+                        <div class="booking-info">
+                            <i class="fa-solid fa-headset"></i>
+                            <div>
+                                <h6>Travel Support</h6>
+                                <p>Our team is available to help with your travel plans.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="booking-card">
+                        <h3>Booking Details</h3>
+                        <form id="bookingForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter your phone number"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Destination</label>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select destination</option>
+                                        <option>Goa</option>
+                                        <option>Manali</option>
+                                        <option>Jaipur</option>
+                                        <option>Kerala</option>
+                                        <option>Mumbai</option>
+                                        <option>Delhi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Travel Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Number of Travelers</label>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select travelers</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5+</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Package</label>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select package</option>
+                                        <option>Weekend Getaway</option>
+                                        <option>Family Vacation</option>
+                                        <option>Adventure Trip</option>
+                                        <option>Luxury Escape</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Travel Type</label>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select travel type</option>
+                                        <option>Solo</option>
+                                        <option>Family</option>
+                                        <option>Friends</option>
+                                        <option>Couple</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Special Requirements</label>
+                                    <textarea class="form-control" rows="4"
+                                        placeholder="Enter any special requirements"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-custom">Confirm Booking <i
+                                            class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5>ChaloChale</h5>
+                    <p>Explore beautiful destinations, discover exciting experiences, and make unforgettable travel
+                        memories.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="Destination.html">Destinations</a></p>
+                    <p><a href="packages.html">Packages</a></p>
+                    <p><a href="booking.html">Booking</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fa-solid fa-phone me-2"></i>+91 98765 43210</p>
+                    <p><i class="fa-solid fa-envelope me-2"></i>info@chalochale.com</p>
+                    <p><i class="fa-solid fa-location-dot me-2"></i>New Delhi, India</p>
+                </div>
+            </div>
+            <div class="bottom-text">
+                <p class="mb-0">&copy; <span id="year"></span> ChaloChale. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("bookingForm").addEventListener("submit", function (e) { e.preventDefault(); alert("Thank you! Your booking request has been submitted successfully."); this.reset(); });
+    </script>
+</body>
+
+</html>
